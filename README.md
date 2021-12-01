@@ -17,8 +17,7 @@
 
   * 2021.12.01 算法练习
 
-    * K 个一组翻转链表 
-    * K 个一组翻转链表 
+    * K 个一组翻转链表 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/algorithm/01.w0001-k-group.js)
 
 
 
