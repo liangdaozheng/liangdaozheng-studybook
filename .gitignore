@@ -1,5 +1,6 @@
 .DS_Store
 /weekToList.md
+/toDoList.md
 .idea/*
 .vscode/*
 node_modules/
