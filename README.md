@@ -11,6 +11,15 @@
 
 # 日志
 
+## WEB前端高级工程师
+
+* 02.WEB前端基础
+
+  * 2021.12.02 学前手册及课表
+
+    * 视频录制学习 [bilibili](https://www.bilibili.com/video/BV1bR4y147Za?spm_id_from=333.999.0.0)
+    * 手册及课表学习
+
 ## 算法
 
 * 01.算法学习
