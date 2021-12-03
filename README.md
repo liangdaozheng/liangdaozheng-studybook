@@ -20,6 +20,10 @@
     * 视频录制学习 [bilibili](https://www.bilibili.com/video/BV1bR4y147Za?spm_id_from=333.999.0.0)
     * 手册及课表学习
 
+  * 2021.12.03 加班
+  
+    * 上线项目 
+
 ## 算法
 
 * 01.算法学习
