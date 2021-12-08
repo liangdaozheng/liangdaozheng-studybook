@@ -1,0 +1,20 @@
+{
+  "name": "studybook",
+  "version": "1.0.0",
+  "description": "studybook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liangdaozheng/liangdaozheng-studybook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liangdaozheng/liangdaozheng-studybook/issues"
+  },
+  "homepage": "https://github.com/liangdaozheng/liangdaozheng-studybook#readme"
+}
