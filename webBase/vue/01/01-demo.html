@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <ul>
+      <li v-for="(item,index) in lists" :key="index">
+        {{item.name}} -- {{item.count}}
+        <span v-show="item.count==0">卖没了</span>
+        <button @click="item.count++">add</button>
+        <input type="text" v-model.number="item.count">
+
+      </li>
+    </ul>
+    <div>
+      总数：{{totalCount}}
+    </div>
+
+  </div>
+
+  
+</body>
+<script>
+  const app=new Vue({
+    el:'#app',
+    data:{
+      lists:[
+        {name:'苹果',count:2},
+        {name:'香蕉',count:33},
+        {name:'桃子',count:4},
+      ]
+    },
+    computed:{
+      totalCount(){
+        return this.lists.reduce((total,item)=>{
+          return total + item.count
+
+        },0)
+      }
+    }
+  })
+
+</script>
+</html>
