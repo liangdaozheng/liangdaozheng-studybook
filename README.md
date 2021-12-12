@@ -65,9 +65,10 @@
 
     * 无课程
   
-  * 2021.12.10 初识 vue-template 基础
+  * 2021.12.12 初识 vue-template 基础
 
-    * 
+    * 初识 Vue 练习 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/01/01-demo.html)
+    * [bilibili](https://www.bilibili.com/video/BV1Pg411w73Y?spm_id_from=333.999.0.0)
 
 ## 算法
 
