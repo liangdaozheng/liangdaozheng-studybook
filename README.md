@@ -72,7 +72,7 @@
 
   * 2021.12.26 组件化思想
 
-    * 组件化思想 练习 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/01/01-demo.html)
+    * 组件化思想 练习 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/01/02-demo.html)
 
 ## 算法
 
