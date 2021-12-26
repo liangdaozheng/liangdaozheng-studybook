@@ -70,6 +70,10 @@
     * 初识 Vue 练习 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/01/01-demo.html)
     * [bilibili](https://www.bilibili.com/video/BV1Pg411w73Y?spm_id_from=333.999.0.0)
 
+  * 2021.12.26 组件化思想
+
+    * 组件化思想 练习 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/01/01-demo.html)
+
 ## 算法
 
 * 01.算法学习

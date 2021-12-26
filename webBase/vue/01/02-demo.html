@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+   <table>
+     <thead>
+       <tr>
+         <th>id</th>
+         <th>用户名</th>
+         <th>邮箱</th>
+         <th>性别</th>
+         <th>爱好</th>
+         <th>操作</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr v-for="(items,index) in lists" :key="index">
+        <td v-for="item in items" :key="item.id">
+          {{ item }}
+        </td>
+        <td>
+          <button @click="deleteHandle(items.id)">delete</button>
+          <button @click="editHandle(items.id)">edit</button>
+        </td>
+       </tr>
+     </tbody>
+   </table>
+
+  </div>
+
+  
+</body>
+<script>
+  const app=new Vue({
+    el:'#app',
+    data:{
+      lists:[
+        {id:1,name:'苹果',email:'xiaohong@qq.com',sex:'女',live:'游泳'},
+        {id:2,name:'苹果',email:'xiaohong@qq.com',sex:'女',live:'游泳'},
+        {id:3,name:'苹果',email:'xiaohong@qq.com',sex:'女',live:'游泳'},
+        {id:4,name:'苹果',email:'xiaohong@qq.com',sex:'女',live:'游泳'},
+        {id:5,name:'苹果',email:'xiaohong@qq.com',sex:'女',live:'游泳'},
+        {id:6,name:'苹果',email:'xiaohong@qq.com',sex:'女',live:'游泳'},
+        
+      ]
+    },
+    methods:{
+      deleteHandle(id){
+        console.log(id)
+      },
+      editHandle(id){
+        console.log(id)
+      },
+    }
+  })
+
+</script>
+</html>
