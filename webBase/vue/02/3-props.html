@@ -10,42 +10,40 @@
 <body>
   <div id="app"></div>
   <script>
-    // const Bar={
-    //   data() {
-    //     return {
-    //       count: 0
-    //     }
-    //   },
-    //   template:`
-    //   <div>bar
-    //     {{count}}
-    //     <button @click="count++">add</button>
-    //     </div>
-    //   `,
-    // }
 
-
-    // Vue.component('Foo', {
-    //   components:{Bar,},
-    //   template:`
-    //   <div>foo
-    //     <Bar></Bar>
-    //     <Bar></Bar>
-    //     </div>
-    //   `,
-    // })
     const Foo={
       data() {
         return {
           count: 0
         }
       },
+      // props:['title'],
+      props:{
+        title:{
+          type:String,
+          default:'ll',
+          required:true,
+          validator(val){
+            console.log(val)
+            // return false
+            return val=='name'
+          }
+        }
+      },
       template:`
       <div>Foo
+        {{title}}
         {{count}}
         <button @click="count++">add</button>
+        <button @click="handleChange">chang props</button>
         </div>
       `,
+      methods: {
+        handleChange() {
+          console.log(this.title);
+          this.title='b'
+        }
+      },
     }
     const app = new Vue({
       el:'#app',
@@ -54,7 +52,7 @@
       },
       template:`
         <div>app
-          <Foo></Foo>
+          <Foo title="name"></Foo>
           
           </div>
       `,

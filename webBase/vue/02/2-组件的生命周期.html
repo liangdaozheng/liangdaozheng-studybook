@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    const Bar={
+      data() {
+        return {
+          count: 0
+        }
+      },
+      template:`
+      <div>Bar
+        {{count}}
+        <button @click="count++">add</button>
+        </div>
+      `,
+      beforeCreate () {
+        console.log('Bar-before-create');;
+      },
+      created () {
+        console.log('Bar-create');;
+      },
+      beforeMount () {
+        console.log('Bar-before-mount');;
+      },
+      mounted () {
+        console.log('Bar-mount');;
+      },
+      beforeUpdate () {
+        console.log('Bar-before-update');;
+      },
+      updated() {
+        console.log('Bar-updated')
+      },
+      beforeDestroy () {
+        console.log('Bar-before-destroy');
+      },
+      destroyed () {
+        console.log('Bar-destroy');;
+      },
+    }
+
+    const Foo={
+      data() {
+        return {
+          count: 0
+        }
+      },
+      components: {
+        Bar,
+      },
+      template:`
+      <div>foo
+        {{count}}
+        <button @click="count++">add</button>
+        <Bar></Bar>
+        </div>
+      `,
+      beforeCreate () {
+        console.log('before-create');;
+      },
+      created () {
+        console.log('create');;
+      },
+      beforeMount () {
+        console.log('before-mount');;
+      },
+      mounted () {
+        console.log('mount');;
+      },
+      beforeUpdate () {
+        console.log('before-update');;
+      },
+      updated() {
+        console.log('updated')
+      },
+      beforeDestroy () {
+        console.log('before-destroy');
+      },
+      destroyed () {
+        console.log('destroy');;
+      },
+    }
+
+    const app = new Vue({
+      el:'#app',
+      components: {
+        Foo
+      },
+      data:{
+        isFoo:true,
+      },
+      template:`
+        <div>app
+          <Foo v-if="isFoo"></Foo>
+          <button @click="isFoo=!isFoo">click</button>
+          </div>
+      `,
+    })
+
+  </script>
+  
+</body>
+</html>
