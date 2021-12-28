@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    const Bar={
+      data() {
+        return {
+          count: 0
+        }
+      },
+      template:`
+      <div>bar
+        {{count}}
+        <button @click="count++">add</button>
+        </div>
+      `,
+    }
+
+
+    Vue.component('Foo', {
+      components:{Bar,},
+      template:`
+      <div>foo
+        <Bar></Bar>
+        <Bar></Bar>
+        </div>
+      `,
+    })
+    const app = new Vue({
+      el:'#app',
+      template:`
+        <div>app
+          <Foo></Foo>
+          
+          </div>
+      `,
+    })
+
+  </script>
+  
+</body>
+</html>
