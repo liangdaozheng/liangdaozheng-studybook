@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=6, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<script>
+  const obj={
+    name:'mike',
+    age:20,
+    hobby:{
+      one:'篮球'
+    }
+  }
+
+  // Object.freeze(obj)
+  function deepFreeze(obj){
+    Object.freeze(obj);
+    for(let i in obj){
+      if(obj.hasOwnProperty(i)){
+        if(typeof obj[i] === 'object'){
+          deepFreeze(obj)
+        }
+      }
+    }
+  };
+
+  let newObj={height:10,...obj};
+  console.log(newObj);
+
+
+  function test(...args){
+
+    // console.log(arguments);
+    console.log(args);
+
+  };
+  test(1,2);
+
+
+  let obj1={
+    name:11,
+    age:20,
+    [document]:30
+  }
+  
+  let map= new Map();
+
+  map.set('name',11)
+  map.set('age',112)
+  map.set(document,112)
+
+  console.log(map);
+
+  let vm=new WeakMap();
+  
+  let set=new Set([1,2,12,34,5])
+
+  console.log(set);
+
+  // 唯一标识属性
+  let s1=Symbol('key');
+  let s2=Symbol('key');
+
+  let obj2={
+    [Symbol('key')]:'1222',
+    name:223
+  };
+  console.log(obj2);
+
+  let res=Object.getOwnPropertySymbols(obj2)
+
+  console.log(res);
+
+  let f=()=>({name:10})
+  console.log(f());
+
+</script>
+
+</body>
+</html>
