@@ -18,7 +18,9 @@
   * 2021.12.29  ES6基础常用功能应用
 
     * ES6基础 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/01/index.html)
-    * 作业 [code]()
+    * 作业 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/tree/main/webBase/ES6/01/homework)
+
+  * 2021.12.30 课前预习一
 
 * 02.WEB前端基础
 
