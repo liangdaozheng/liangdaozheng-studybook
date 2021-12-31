@@ -21,20 +21,32 @@
     let obj1=Object.create(null)
 
     // 工厂模式
-    function Person(name){
-      let obj={};
-      obj.name=name;
-      return obj;
-    }
-    let zhangsan=Person('zhangsan');
-    console.log(zhangsan)
+    // function Person(name){
+    //   let obj={};
+    //   obj.name=name;
+    //   return obj;
+    // }
+    // let zhangsan=Person('zhangsan');
+    // console.log(zhangsan)
 
     // new 运算符
-    
 
+    // 构造函数
+    function Person(){
+      this.name=name
+      this.age=20;
+      this.hobby=()=>{
+        console.log(this)
+      }
+    };
 
+    let zhangsan=new Person('zhangsan')
 
+    Person.prototype.say=function(){
+      console.log('ok ?')
+    }
 
+    console.log(Person.prototype.constructor===Person)
 
 
 
