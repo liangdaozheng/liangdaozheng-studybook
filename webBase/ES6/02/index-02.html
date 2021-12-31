@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+
+    function Foo(name){
+      this.name=name;
+      this.age=20;
+    };
+    Foo.prototype.fn=function(){
+      console.log('Foo');
+    }
+
+    let newFoo=new Foo('zhangsan');
+
+    console.log(Object.prototype.__proto__) // =>null
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+  
+</body>
+</html>
