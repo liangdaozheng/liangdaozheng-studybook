@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+
+    function Foo(name){
+      this.name=name;
+      this.age=20;
+    };
+    Foo.prototype.fn=function(){
+      console.log('Foo');
+    }
+
+    let newFoo=new Foo('zhangsan');
+
+    console.log(Object.prototype.__proto__) // =>null
+
+    // call apply bind
+
+    function Dad(name,age){
+      this.name=name;
+      this.age=age;
+      this.money='1000'
+    };
+    Dad.prototype.fn=function(){
+      console.log("fn")
+    }
+
+    function Son(name,age){
+      Dad.call(this,name,age);
+      this.sex='boy'
+    }
+    // Son.prototype=Dad.prototype;
+    // Son.prototype.fn=function(){
+    //   console.log('son fu');
+    // }
+
+    let DadProto={
+      name:'zhangsan',
+      age:20,
+      fn:function(){
+        console.log('fn');
+      },
+      arr:[1,2,3,4],
+      text:undefined,
+    }
+
+    // let SonProto=DadProto;
+    
+    // SonProto.name='lisi',
+    // console.log(SonProto===DadProto);
+
+    // let SonProto=JSON.parse(JSON.stringify(DadProto));
+
+    // console.log(SonProto===DadProto);
+
+    function deepCopy(obj){
+      let newObj=Array.isArray(obj)?[]:{};
+      for(let key in obj){
+        if(obj.hasOwnProterty(key)){
+          if(typeof obj[key] === 'object'){
+            newObj[key]=deepCopy(obj[key]);
+          }else{
+            newObj[key]=obj[key]
+          }
+        }
+      }
+      return newObj;
+    };
+
+
+
+  </script>
+  
+</body>
+</html>
