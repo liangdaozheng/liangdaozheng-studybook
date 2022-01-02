@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+  // 面向过程 面向对象 研究对象 => 属性及方法 => 抽象成类 提高复用 => 抽象成基类（父类） =>再组织逻辑关系
+
+  function Person(name){
+    this.name=name;
+    tis.age=20;
+    this.height=170;
+  }
+
+  let zhangsan=new Person('zhangsan')
+
+  // ES6 class 
+
+  // class Person{
+  //   constructor(name){
+  //     this.name=name;
+  //     this.age=age;
+  //     this.height=190;
+  //   };
+  //   fu(){
+  //     console.log('fn')
+  //   }
+  // }
+
+  // ES2020 公有私有
+
+  // class Person{
+  //   #weight='130key';
+  //   constructor(name){
+  //     this.name=name;
+  //     this.age=age;
+  //     this.height=190;
+  //   };
+  //   fu(){
+  //     console.log('fn')
+  //   };
+  //   getWeight(){
+  //     return this.#weight;
+  //   }
+  // }
+
+  // 静态成员
+  // class Person{
+  //   #weight='130key';
+  //   static instance;
+  //   constructor(name){
+  //     if(Person.instance){
+  //       Person.instance=this;
+  //     }else{
+  //       return Person.instance;
+  //     }
+  //     this.name=name;
+  //     this.age=age;
+  //     this.height=190;
+  //   };
+  //   fu(){
+  //     console.log('fn')
+  //   };
+  //   getWeight(){
+  //     return this.#weight;
+  //   }
+  // }
+  // 访问器属性
+  // class Person{
+  //   constructor(name){
+  //   //  this.name=name; 
+  //   };
+  //   get(){
+  //     return 'zhangsan'
+  //   };
+  //   set(newVal){
+  //     console.log(newVal);
+  //   }
+  // }
+
+  // 继承
+
+  // class Dad{
+  //   constructor(name){
+  //   //  this.name=name; 
+  //   };
+  //   fn(){
+  //     console.log('fn');
+  //   }
+  // }
+  // class Son extends Dad{
+  //   constructor(name){
+  //     super(name);
+  //   }
+  //   test(){
+  //     super.fn();
+  //   }
+    
+  // }
+
+  class AbstractPerson{
+    constructor(){
+      if(new.target===AbstractPerson){
+        throw new Error('no no no')
+      };
+      this.age=20;
+    }
+  }
+
+  class Person extends AbstractPerson{
+    constructor(name){
+      super();
+      this.name=name;
+    }
+  }
+
+  // 面试题
+
+  class Dog{
+    wow(){
+      console.log('wow');
+    }
+    yelp(){
+      this.wow();
+    }
+  }
+
+  class MadDog extends Dog{
+    yelp(){
+      setInterval(()=>{
+        this.wow();
+      },500)
+    }
+  }
+
+  // 实现链式调用
+  // return this
+  class Person{
+    fn(){
+      console.log('fn');
+      // return this;
+      return new Person();
+    }
+  }
+
+  // __proto__ prototype 关系
+
+
+
+
+
+</script>
+</html>

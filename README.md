@@ -26,11 +26,15 @@
 
   * 2021.12.31 课前预习二
 
-    * 预习二 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/02/index-02.html)类及ESM模块化应用
+    * 预习二 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/02/02-index.html)类及ESM模块化应用
 
   * 2022.01.01 类及ESM模块化应用
 
-    * 类及ESM模块化应用 [code]()
+    * 类及ESM模块化应用 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/02/03-index.html)
+
+  * 2022.01.02 类及ESM模块化应用
+
+    * 作业 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/02/template)
 
 * 02.WEB前端基础
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+
+<script type="module">
+
+// ESM            commonjs 
+
+function test(){
+  console.log(this) // 严格模式
+}
+
+// test();
+
+// import {a as c,b} from './04-a.js'
+// console.log(c)
+// console.log(b)
+
+document.onclick=function(){
+  import('./04-a.js').then(res=>{
+    console.log(res);
+    
+  })
+}
+
+
+
+
+
+
+
+
+</script>
+</html>
