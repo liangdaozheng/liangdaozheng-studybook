@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+// let obj1 = {
+//     name:"张安"
+// }
+// let obj2 = {...obj1,height:"178cm"};
+// console.log(obj2);
+
+// let name = "张三";
+// let age = 20;
+// let obj = {name,age};
+// // let obj = {name:name,age:age};
+// console.log(obj);
+
+// let obj = {
+//     fn(){
+//         console.log(1111);
+//     }
+// }
+// obj.fn();
+
+// let obj = {
+//     fn:function(){
+//         console.log(1111);
+//     }
+// }
+
+
+// console.log(NaN===NaN);
+// let res =  Object.is(NaN,NaN);
+// console.log(res);
+// let obj1 = {
+//     name:"张三"
+// }
+// let obj2 = {
+//     height:"178"
+// }
+// let res =  Object.assign(obj1,obj2);
+// console.log(res);
+
+// let res =  Object.getOwnPropertyDescriptors(obj2)
+// console.log(res);
+
+
+// obj2.__proto__.name = "张三";
+// console.log(obj2);
+
+// 获取
+// Object.getPrototypeOf();
+// 设置
+// Object.setPrototypeOf();
+// Object.keys Object.values 
+
+// let myname = "张三";
+// let str = `名字是${myname},好`;
+// console.log(str);
+
+// filter reduce some every map forEach 结果
+// for  for .. in  for.. of.. 过程
+
+// function Person(){
+//     this.name = "张三";
+// }
+// console.dir(Person);
+// Person.prototype.fn = function(){
+//     console.log("fn");
+// }
+// // console.dir(test);
+// // prototype  __proto__
+// let zhangsan  =  new Person();
+// console.log(zhangsan);
+
+// class Person{
+//     constructor(name){
+//         this.name = name;
+//     }
+// }
+// class Son extends Person{
+//     constructor(name){
+//         super(name);
+//         this.height = "178";
+//     }
+// }
+// let zhangsan = new Son("张三");
+// console.log(zhangsan)
+
+// class AbstractPerson{
+//     constructor(){
+//         if(new.target===AbstractPerson){
+//             throw new Error("抽象类no nonono");
+//         }
+
+//     }
+// }
+
+// class Person extends AbstractPerson{
+
+// }
+
+// let zhangsan =  new Person();
+// console.log(zhangsan);
+
+
+// 静态成员
+// class Person{
+//     static age = 20;
+//     constructor(name){
+//         this.name = name;
+//     }
+// }
+
+// console.log(Person.age);
+// let zhangasn = new Person();
+
+
+// 私有
+class Person{
+    #weight = "130";
+    constructor(){
+        this.age = 20;
+    }
+    getWeight(){
+        return this.#weight;
+    }
+}
+
+
+let zhangsan  = new Person();
+console.log(zhangsan.getWeight());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

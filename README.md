@@ -18,6 +18,7 @@
   * 2022.01.03 前端常用设计模式
 
     * 常用设计模式 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/03)
+    * 答疑 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/04/01-index.html)
 
   * 2022.01.02 类及ESM模块化应用
 

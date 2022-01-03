@@ -7,5 +7,6 @@ export default class Game{
     }
     login(username){
         this.player = new Player(username);
+        this.player.heroes[0].trigger("init");
     }
 }

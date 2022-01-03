@@ -47,6 +47,10 @@ class MyEvent{
     });
   }
   removeEvent(eventName,fn){
+    if(typeof this.handles[eventName] === "undefined"){
+        throw new Error ("not found " + eventName);
+        return ;
+    }
     this.handles[eventName]=this.handles[eventName].filter(itemFn=>itemFn!==fn)
   }
 }
