@@ -3,29 +3,6 @@
 // 单一原则
   鲁班  亚瑟 技能 皮肤 玩家  游戏管理  根据需求分析对象
   对象--->抽象--》类 ---》抽象基类--》组织逻辑关系。。。（模块化）
-game{
-    login(username){
-        player
-    }
-}
-
- player {
-     name:"张三",
-     heroes:[
-        luban:{
-            name:"鲁班",
-            skills:[],
-            skins:[],
-            ico:''
-        }
-        yase:{
-            name:"yase",
-            skills:[],
-            skins:[],
-             ico:''
-        }
-     ]
- }
 */
 
 import Game from './game/game.js';
@@ -54,7 +31,9 @@ function renderHeroes(heroes){
         heroDiv.onclick = function(){
             renderSkills(hero.skills);
             renderSkins(hero.skins);
-            document.querySelector(".heroShow").innerHTML = `<img src="${hero.ico}" />`
+            console.log(hero)
+            document.querySelector(".heroShow").innerHTML = `<img src="${hero.ico}" />`;
+            document.querySelector(".skinShow").innerHTML = `<img src='${hero.skins[0].img}' />`;
         }
         document.querySelector(".heroView").appendChild(heroDiv);
     })
@@ -62,7 +41,7 @@ function renderHeroes(heroes){
 
 // 渲染技能
 function renderSkills(skills){
-    // console.log(skills)
+    console.log(skills)
     document.querySelector(".skillsView").innerHTML = "";
     // 渲染技能
     skills.forEach(skill=>{
@@ -102,5 +81,3 @@ document.querySelector(".skinBtn").onclick = function(){
     document.querySelector(".heroContainer").style.display = "none";
     document.querySelector(".skinContainer").style.display = "block";
 }
-
-// 作业： 实现一个鲁班英雄 实现鲁班渲染和 技能渲染。
