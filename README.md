@@ -15,6 +15,10 @@
 
 * 03.前端编程思维进阶
 
+  * 2022.01.04 面向对象实现自己库
+
+    * 库 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/05)
+
   * 2022.01.03 前端常用设计模式
 
     * 常用设计模式 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/03)

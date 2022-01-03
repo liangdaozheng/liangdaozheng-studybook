@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./myjq.js"></script>
+</head>
+<body>
+  <div class="box">click me</div>
+  <div class="box">click me2</div>
+</body>
+<script>
+// $('.box').click(function(){
+//   console.log('click event')
+// })
+
+// $(document.querySelector('.box')).click(function(){
+//   console.log('click')
+// })
+
+// $(function(){
+//   console.log('load')
+// })
+
+
+// let res=$('.box');
+// console.log(res)
+
+// $('.box').click(()=>{
+// console.log('click')
+// })
+
+// $('.box').on('mouseover mousedown',()=>{
+//   console.log('click')
+// })
+
+$('.box').on('mouseover',()=>{
+  console.log('mouseover')
+}).on('mousedown',()=>{
+  console.log('mousedown')
+})
+
+
+</script>
+</html>
