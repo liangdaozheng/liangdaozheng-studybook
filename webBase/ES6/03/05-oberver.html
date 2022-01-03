@@ -14,7 +14,7 @@ document.querySelector('.box').addEventListener('click',function(){
   console.log('click event');
 })
 
-let obj={
+let obj1={
   fn1(){
     console.log('fn1')
   }
@@ -46,11 +46,21 @@ class MyEvent{
       fn();
     });
   }
+  removeEvent(eventName,fn){
+    this.handles[eventName]=this.handles[eventName].filter(itemFn=>itemFn!==fn)
+  }
 }
 
+let eventObj=new MyEvent();
+eventObj.addEvent('myevent',obj1.fn1)
+eventObj.addEvent('myevent',obj2.fn2)
 
-
-
+setTimeout(() => {
+  eventObj.trigger('myevent');
+  eventObj.removeEvent('myevent',obj2.fn2);
+  console.log(eventObj);
+  eventObj.trigger('myevent');
+}, 1000);
 
 </script>
 </html>
