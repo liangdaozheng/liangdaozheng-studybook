@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+// 功能扩展 extends 装饰着模式
+
+class Yase{
+  constructor(){
+    this.name='亚瑟'
+  }
+  release(){
+    console.log('gogogogo')
+  }
+}
+let yase=new Yase();
+function hurt(){
+  console.log('100点')
+}
+function walk(){
+  console.log('go')
+}
+Function.prototype.Decorator=function(fn){
+  let _this=this;
+  return function(){
+    _this();
+    fn();
+  }
+}
+
+yase.release.Decorator(hurt).Decorator(walk)()
+
+
+
+
+</script>
+</html>

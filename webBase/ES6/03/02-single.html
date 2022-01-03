@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+  // window document store
+  // 单例模式
+  class Person{
+    static instance
+    constructor(name){
+      if(!Person.instance){
+        Person.instance=this;
+      }else{
+        return Person.instance;
+      }
+      this.name=name;
+    }
+  }
+
+  // 通用单例
+  function createInstance(fn){
+    let instance;
+    return function(...args){
+      if(!instance){
+        instance =new fn(...args);
+      }else{
+        return instance
+      }
+    }
+  }
+
+  // 单例应用
+  class Dialog{
+    constructor(){
+      let dialog=document.createElement('div');
+      this.dialog=dialog;
+      this.dialog.style.display='none';
+      this.isShow=false;
+    }
+    showDialog(){
+      if(this.isShow){
+        this.dialog.innerHTML='这是个对话框'
+        document.body.appendChild(this.dialog);
+        this.dialog.style.display='block';
+        this.isShow=true
+
+      }else{
+        console.warn('only one')
+      }
+    }
+  }
+
+
+
+
+
+
+
+</script>
+
+
+</html>

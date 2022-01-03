@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+// 享元模式
+
+let userNumber=10;
+let horseNum=0;
+// class CreatHorse{
+//   constructor(type){
+//     horseNum++;
+//     this.horseNum=horseNum;
+//     this.type=type?'大马':'小马'
+//   }
+//   ride(uid){
+//     console.log(`人${uid}在骑${this.horseNum}号${this.type}`)
+//   }
+// }
+
+// for (let index = 0; index < userNumber; index++) {
+//   let horse;
+//   if(index%2===0){
+//     horse=new CreatHorse(false)
+//   }else{
+//     horse=new CreatHorse(true)
+//   }
+//   horse.ride(index);
+// }
+// let smallhorse=new CreatHorse(false);
+// let bighorse=new CreatHorse(true);
+
+// for (let index = 0; index < userNumber; index++) {
+//   let horse;
+//   if(index%2===0){
+//     smallhorse.ride(index);
+//   }else{
+//     bighorse.ride(index);
+//   }
+// }
+class CreatHorse{
+  constructor(type){
+    horseNum++;
+    this.horseNum=horseNum;
+    this.type=type?'大马':'小马';
+    this.finish=true;
+  }
+  ride(uid){
+   return new Promise(resolve=>{
+    console.log(`人${uid}在骑${this.horseNum}号${this.type}`);
+    this.finish=false;
+    setTimeout(() => {
+      resolve(`人${uid}在骑${this.horseNum}号${this.type}完毕`)
+      this.finish=true;
+    }, 2000);
+   })
+  }
+}
+
+class HorsePool{
+  constructor(){
+    this.horse=[new CreatHorse(true),new CreatHorse(true),new CreatHorse(true)];
+    this.people=[1,2,3,4,5,6,7,8,9,10]
+  }
+  rideHorse(){
+    this.people.forEach(uid=>{
+      let horse=this.getHorse();
+      if(horse){
+        horse.ride(uid).then(res=>{
+          console.log(res);
+          this.people.shift()&&this.rideHorse()&&this.people.length;
+        })
+      }
+    })
+  }
+  getHorse(){
+    return this.horse.find(item=>item.finish)
+  }
+}
+
+let horsePool=new HorsePool();
+
+horsePool.rideHorse();
+
+
+
+</script>
+</html>

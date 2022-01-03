@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">121212</div>
+</body>
+<script>
+document.querySelector('.box').addEventListener('click',function(){
+  console.log('click event');
+})
+
+let obj={
+  fn1(){
+    console.log('fn1')
+  }
+}
+let obj2={
+  fn2(){
+    console.log('fn2')
+  }
+}
+
+// 管理事件
+
+class MyEvent{
+  constructor(){
+    this.handles={};
+  }
+  addEvent(eventName,fn){
+    if(typeof this.handles[eventName]==='undefined'){
+      this.handles[eventName]=[]
+
+    };
+    this.handles[eventName].push(fn);
+  }
+  trigger(eventName){
+    if(!(eventName in this.handles)){
+      return;
+    }
+    this.handles[eventName].forEach(fn => {
+      fn();
+    });
+  }
+}
+
+
+
+
+
+</script>
+</html>

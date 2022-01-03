@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+class Luban{
+  constructor(){
+    this.name='鲁班';
+
+  }
+}
+
+class Yase{
+  constructor(){
+    this.name='亚瑟';
+    
+  }
+}
+
+function Factory(heroName){
+  switch(heroName){
+    case 'luban':
+      return new Luban()
+      break;
+    case 'yase':
+      return new Yase()
+      break;
+    default:
+      console.log('no');
+      break;
+  }
+}
+
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+// 代理模式
+let zhangsan={
+  sellHouse(num){
+    console.log('卖了'+num+'万元')
+  }
+}
+
+let proxySeller={
+  sellHouse(hasSold,num){
+    if(hasSold){
+      zhangsan.sellHouse(num-2)
+    }else{
+      zhangsan.sellHouse(num)
+    }
+  }
+}
+
+proxySeller.sellHouse(true,100);
+
+// proxy 服务器代理 转发请求
+// proxy 代理对象 
+
+// 创建图片
+class CreateImage{
+  constructor(){
+    this.img=document.createElement('img');
+    document.body.appendChild(this.img)
+  }
+  setSrc(src){
+    this.img.src=src;
+  }
+}
+
+let img=new CreateImage();
+let src ='https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F4k%2Fs%2F02%2F2109242332225H9-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1643799652&t=a6549287235300e0670bcc5b95c5e9ac'
+img.setSrc(src);
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

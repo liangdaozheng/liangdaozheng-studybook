@@ -15,26 +15,30 @@
 
 * 03.前端编程思维进阶
 
-  * 2021.12.29  ES6基础常用功能应用
+  * 2022.01.03 前端常用设计模式
 
-    * ES6基础 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/01/index.html)
-    * 作业 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/tree/main/webBase/ES6/01/homework)
+    * 常用设计模式 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/03)
 
-  * 2021.12.30 课前预习一
+  * 2022.01.02 类及ESM模块化应用
 
-    * 预习一 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/02/01-index.html)
-
-  * 2021.12.31 课前预习二
-
-    * 预习二 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/02/02-index.html)类及ESM模块化应用
+    * 作业 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/02/template)
 
   * 2022.01.01 类及ESM模块化应用
 
     * 类及ESM模块化应用 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/02/03-index.html)
 
-  * 2022.01.02 类及ESM模块化应用
+  * 2021.12.31 课前预习二
 
-    * 作业 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/02/template)
+    * 预习二 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/02/02-index.html)类及ESM模块化应用
+
+  * 2021.12.30 课前预习一
+
+    * 预习一 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/02/01-index.html)
+
+  * 2021.12.29  ES6基础常用功能应用
+
+    * ES6基础 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/01/index.html)
+    * 作业 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/tree/main/webBase/ES6/01/homework)
 
 * 02.WEB前端基础
 
@@ -43,37 +47,16 @@
     * 视频录制学习 [bilibili](https://www.bilibili.com/video/BV1bR4y147Za?spm_id_from=333.999.0.0)
     * 手册及课表学习
 
-  * 2021.12.03 加班
-  
-    * 上线项目
+* 01.Vue 
 
-  * 2021.12.04 
-  
-    * 课程视频
+  * 2021.12.26 组件化思想
 
-  * 2021.12.05 
-  
-    * 无课程 
+    * 组件化思想 练习 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/01/02-demo.html)
 
-  * 2021.12.06 
-  
-    * 无课程
+  * 2021.12.12 初识 vue-template 基础
 
-  * 2021.12.07 
-  
-    * 无课程
-
-* 03.Vue 
-
-  * 2021.12.08 初识 vue-template 基础
-
-    * 片段一
-    * 片段二
-
-  * 2021.12.09 初识 vue-template 基础
-
-    * 片段三
-    * 片段四
+    * 初识 Vue 练习 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/01/01-demo.html)
+    * [bilibili](https://www.bilibili.com/video/BV1Pg411w73Y?spm_id_from=333.999.0.0)
 
   * 2021.12.10 初识 vue-template 基础
 
@@ -83,20 +66,17 @@
     * 片段八
     * 片段九
     * 片段十
+
+  * 2021.12.09 初识 vue-template 基础
+
+    * 片段三
+    * 片段四
+
+  * 2021.12.08 初识 vue-template 基础
+
+    * 片段一
+    * 片段二
   
-  * 2021.12.11 
-
-    * 无课程
-  
-  * 2021.12.12 初识 vue-template 基础
-
-    * 初识 Vue 练习 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/01/01-demo.html)
-    * [bilibili](https://www.bilibili.com/video/BV1Pg411w73Y?spm_id_from=333.999.0.0)
-
-  * 2021.12.26 组件化思想
-
-    * 组件化思想 练习 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/01/02-demo.html)
-
 ## 算法
 
 * 01.算法学习

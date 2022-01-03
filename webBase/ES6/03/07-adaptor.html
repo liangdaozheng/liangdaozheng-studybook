@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+// 适配器模式
+function getUsers(){
+  return [{
+    name:'zhangsan',
+    age:20
+  },{
+    name:'lisi',
+    age:30
+  }]
+}
+
+function Adaptor (users){
+  let arr=[];
+  for (let index = 0; index < users.length; index++) {
+    arr[users[index].name] = users[index].age;
+    
+  }
+  return arr;
+}
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
