@@ -1,26 +1,25 @@
 
 
-
-// function $(arg){
-//   return {
-//     click(callBack){
-//       document.querySelector(arg).onclick=callBack;
-//     }
-//   }
-// }
-
 class Jq{
-  constructor(arg){
+  constructor(arg,root){
+    if(typeof root === "undefined"){
+      this.prevObject=[document]
+    }else{
+      this.prevObject=root
+    }
     if(typeof arg ==='string'){
       // this.ele=document.querySelector(arg);
       let eles=document.querySelectorAll(arg);
+      // console.log(eles,'222')
       this.#addEles(eles)
     }else if(typeof arg==='function'){
       document.addEventListener('DOMContentLoaded',arg);
     }else{
-      if(typeof arg.length !== undefined){
+      if(typeof arg.length !== "undefined"){
+        // console.log(111)
         this.#addEles(arg)
       }else{
+        // console.log(222)
         this[0]=arg;
         this.length=1;
       }
@@ -28,7 +27,7 @@ class Jq{
     
   }
   #addEles(eles){
-    // console.log(eles);
+    console.log(eles);
     for (let index = 0; index < eles.length; index++) {
       this[index] = eles[index];
       
@@ -44,7 +43,7 @@ class Jq{
   }
   on(eventName,cb){
     let eventArr=eventName.split(" ");
-    console.log(eventArr);
+    // console.log(eventArr);
     for (let index = 0; index < this.length; index++) {
       for (let j = 0; j < eventArr.length; j++) {
         this[index].addEventListener(eventArr[j],cb);
@@ -53,6 +52,16 @@ class Jq{
       
     }
     return this;
+  }
+  eq(index){
+    // return this[index];
+    return new Jq(this[index],this);
+  }
+  end(){
+    return this.prevObject;
+  }
+  get(index){
+    return this[index];
   }
 
 
