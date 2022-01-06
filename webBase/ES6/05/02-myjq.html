@@ -9,7 +9,8 @@
 </head>
 <body>
   <div class="box">click me</div>
-  <div class="box">click me2</div>
+  <!-- <div class="box">click me2</div> -->
+  <button>btn</button>
 </body>
 <script>
 // $('.box').click(function(){
@@ -57,9 +58,91 @@
 
 // console.log($('div').get(0))
 
-$('div').eq(0).eq(0).end().end().on('click',function(){
-  console.log(1223)
+// $('div').eq(0).eq(0).end().end().on('click',function(){
+//   console.log(1223)
+// })
+
+
+// $('div').css({
+//   width:'100px',
+//   height:'100px',
+//   background:'red',
+// })
+
+// $('div').css('background','blue')
+
+// console.log($('div').css('background'))
+
+// $.cssHooks.wh={
+//   get(ele){
+//     console.log('get',ele);
+//     return getComputedStyle(ele,null)['width'] +'-'+getComputedStyle(ele,null)['height']
+//   },
+//   set(ele,styleValue){
+//     console.log('set',ele,styleValue);
+//     ele.style['width']=styleValue;
+//     ele.style['height']=styleValue;
+//   }
+// }
+
+// let res=$('div').css('wh')
+// console.log(res)
+
+// $('div').css('wh','300px')
+
+
+// 实现一个animate 方法
+
+$('button').on('click',function(){
+  $('.box').animate({width:'600px'},2000,function(){
+    console.log('ok');
+  })
 })
+
+
+
+const Deferred=function(){
+ 
+  let state='pending';
+  let deferred={
+    state(){
+      return state;
+    },
+    then(doneCb,failCb){
+      this.done(doneCb).fail(failCb)
+    }
+  };
+  let tuples=[
+    ['resolve','done',$.Callbacks('once'),'resolved'],
+    ['reject','fail',$.Callbacks('once'),'rejected']
+  ];
+
+  tuples.forEach((tuple,i)=>{
+    let list=tuple[2];
+    stateString=tuple[3];
+    deferred[tuple[1]]=list.add;
+    if(stateString){
+      list.add(function(){
+        status=stateString;
+      })
+    }
+    deferred[tuple[0]]=function(res){
+      deferred[tuple[0] + 'With'](this,arguments)
+    }
+    deferred[tuple[0] + 'With']=list.fireWith;
+  })
+
+
+  return deferred;
+}
+
+
+
+
+
+
+
+
 
 
 </script>

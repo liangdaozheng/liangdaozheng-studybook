@@ -63,11 +63,52 @@ class Jq{
   get(index){
     return this[index];
   }
-
+  css(...args){
+    // console.log(args);
+    if(args.length === 1){
+      // 一个参数
+      if(typeof args[0]==='object'){
+        // 对象1 设置多个样式
+        for (let index = 0; index < this.length; index++) {
+          for (let key in args[0]) {
+            this.#setStyle(this[index],key,args[0][key])
+          }
+        }
+      }else{
+        // 3 获取样式 多个元素处理第一个样式
+       return this.#getStyle(this[0],args[0])
+      }
+    }else{
+      // 两个参数2 设置一个样式
+      for (let index = 0; index < this.length; index++) {
+        this.#setStyle(this[index],args[0],args[1])
+      }
+    }
+    return this;
+  }
+  #getStyle(ele,styleName){
+    if(styleName in $.cssHooks){
+     return $.cssHooks[styleName].get(ele);
+    }
+    return getComputedStyle(ele,null)[styleName]
+  }
+  #setStyle(ele,styleName,styleValue){
+    if(typeof styleValue==='number' && !$.cssNumber[styleName]){
+      styleValue=styleValue+'px'
+    }
+    if(styleName in $.cssHooks){
+      $.cssHooks[styleName].set(ele,styleValue);
+     }
+    ele.style[styleName]=styleValue;
+  }
 
 
 }//end
 
+$.cssNumber={
+  key:true
+}
+$.cssHooks={}
 function $(arg){
   return new Jq(arg)
 }
