@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+let fn1=function(){
+  return new Promise(resolve=>{
+    setTimeout(() => {
+      console.log(111);
+      resolve(111)
+    }, 1000);
+  })
+}
+
+let fn2=function(){
+  return new Promise(resolve=>{
+    setTimeout(() => {
+      console.log(222);
+      resolve(111)
+    }, 2000);
+  })
+}
+
+// fn1().then(res=>{
+//   console.log(res);
+//   return fn2;
+// }).then(res=>{
+//   console.log(res)
+// })
+
+// async function fn(){
+//   await fn1();
+//   await fn2();
+// }
+
+// fn();
+
+async function fn(){
+  try {
+    let res1= await fn1();
+    console.log(res1)
+    let res2= await fn2();
+    console.log(res2)
+    console.log(333)
+  } catch(err){
+    console.log(err)
+  }
+  
+}
+
+fn();
+
+
+</script>
+</html>

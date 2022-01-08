@@ -15,6 +15,22 @@
 
 * 03.前端编程思维进阶
 
+  * 2022.01.08 异步处理
+
+    * 异步处理 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/06)
+
+  * 2022.01.07 面向对象实现自己库
+
+    * 库 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/05)
+
+  * 2022.01.06 面向对象实现自己库
+
+    * 库 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/05)
+
+  * 2022.01.05 面向对象实现自己库
+
+    * 库 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/05)
+
   * 2022.01.04 面向对象实现自己库
 
     * 库 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/05)

@@ -5,19 +5,63 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: absolute;
+      left: 0px;
+      top:0px
+    }
+  </style>
 </head>
 <body>
-  
+  <div class="box"></div>
 </body>
 <script>
 
+// console.log(111)
+// console.log(222)
+// console.log(333)
 
+// setTimeout(() => {
+//   console.log(444);
+// }, 1000);
 
+// 回调地域 回调函数的层层嵌套
 
+function move(ele,dir,target,cb){
+  let start=parseInt( getComputedStyle(ele,null)[dir]);
+  console.log(start);
+  let speed=5*(target>start?1:-1);
+  setTimeout(() => {
+    start+=speed;
+    if(start===target){
+      console.warn('over');
+      cb && cb();
+    }else{
+      ele.style[dir]=start+'px';
+      move(ele,dir,target,cb);
+    }
+    
+  }, 10);
 
+}
 
-
-
+let ele=document.querySelector('.box');
+move(ele,'left',300,function(){
+  move(ele,'top',300,function(){
+    console.log('ffff')
+    move(ele,'left',0,function(){
+      console.log('dddd');
+      move(ele,'top',0,function(){
+        console.log('gggg');
+        location.reload();
+      })
+    })
+  })
+})
 
 
 

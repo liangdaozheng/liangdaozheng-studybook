@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: absolute;
+      left: 0px;
+      top:0px
+    }
+  </style>
+</head>
+<body>
+  <button>click</button>
+  <div class="box"></div>
+</body>
+<script>
+
+// let eventObj=new EventTarget();
+
+// function fn1(){
+//   console.log('fn1');
+// }
+
+// function fn2(){
+//   console.log('fn2');
+// }
+
+// eventObj.addEventListener('myEvent',fn1)
+// eventObj.addEventListener('myEvent',fn2)
+
+
+
+// document.querySelector('button').onclick=function(){
+//   eventObj.dispatchEvent(new CustomEvent('myEvent'))
+// }
+let eventObj=new EventTarget();
+let num=1;
+function move(ele,dir,target){
+  let start=parseInt( getComputedStyle(ele,null)[dir]);
+  // console.log(start);
+  let speed=5*(target>start?1:-1);
+  setTimeout(() => {
+    start+=speed;
+    if(start===target){
+      console.warn('over');
+      eventObj.dispatchEvent(new CustomEvent('myEvent'+num));
+      num++;
+    }else{
+      ele.style[dir]=start+'px';
+      move(ele,dir,target);
+    }
+    
+  }, 10);
+
+}
+
+let ele=document.querySelector('.box');
+
+move(ele,'left',300)
+
+eventObj.addEventListener('myEvent1',function(){
+  console.log('运动完成1');
+  move(ele,'top',300)
+})
+eventObj.addEventListener('myEvent2',function(){
+  console.log('运动完成2');
+  move(ele,'left',0)
+})
+eventObj.addEventListener('myEvent3',function(){
+  console.log('运动完成3');
+  move(ele,'top',0)
+})
+eventObj.addEventListener('myEvent4',function(){
+  console.log('运动完成4');
+})
+
+
+
+
+
+
+</script>
+</html>
