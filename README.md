@@ -15,6 +15,10 @@
 
 * 03.前端编程思维进阶
 
+  * 2022.01.09 Promise原理解析
+
+    * Promise原理 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/07)
+
   * 2022.01.08 异步处理
 
     * 异步处理 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/06)

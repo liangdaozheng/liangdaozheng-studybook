@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script type="module">
+
+import KPromise from './kpromise.js';
+
+
+let p = new KPromise((resolve,reject)=>{
+  // resolve(200)
+  // reject('err')
+  setTimeout(() => {
+    resolve(200)
+  }, 2000);
+})
+
+console.log(p)
+
+// then 的问题
+
+p.then((res)=>{
+  console.log(res)
+},err=>{
+  console.log(err)
+})
+
+
+
+
+
+</script>
+</html>
