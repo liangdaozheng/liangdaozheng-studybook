@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- dddd{{message}}ggggg -->
+    <input type="text" v-module="message">
+    {{message}}
+  </div>
+</body>
+<script src="./kvue3.js"></script>
+<script>
+
+let vm =new KVue({
+  el:'#app',
+  data:{
+    message:'数据'
+  }
+})
+
+console.log(vm)
+
+// setTimeout(() => {
+//   vm._data.message='修改数据'
+// }, 2000);
+
+
+
+
+</script>
+</html>

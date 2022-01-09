@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+  let obj = Object.defineProperty({}, "name", {
+    configurable: true,
+    enumerable: true,
+    get() {
+      return 'zhangsan'
+    },
+    set(newVal) {
+      console.log(newVal)
+    }
+  })
+
+  console.log(obj);
+
+  let obj1 = {
+    name: 'zhangss',
+    age: 20,
+  };
+  for (let key in obj1) {
+    let value=obj1[key]
+    Object.defineProperty(obj1, key, {
+      configurable: true,
+      enumerable: true,
+      get() {
+        return value
+      },
+      set(newVal) {
+        value = newVal;
+      }
+    })
+  }
+
+
+
+</script>
+
+</html>

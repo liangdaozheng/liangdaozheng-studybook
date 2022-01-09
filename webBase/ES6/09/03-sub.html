@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+
+function fn1(){
+  console.log('fn1')
+}
+
+function fn2(){
+  console.log('fn2')
+}
+
+let event=new EventTarget();
+
+event.addEventListener('myevent',fn1)
+event.addEventListener('myevent',fn2)
+
+setTimeout(() => {
+  event.dispatchEvent(new CustomEvent('myevent'))
+}, 2000);
+
+class Dep{
+  constructor(){
+    this.subs=[];
+
+  }
+  addSub(sub){
+    this.subs.push(sub)
+  }
+  notify(){
+    this.subs.forEach(sub=>{
+      sub.update();
+    })
+  }
+}
+
+class Watcher{
+  constructor(cb){
+    this.cb=cb;
+  }
+  update(){
+    this.cb();
+  }
+}
+
+let dep=new Dep();
+dep.addSub(
+new Watcher(fn1))
+dep.addSub(
+new Watcher(fn2))
+
+setTimeout(() => {
+  dep.notify();
+}, 2000);
+
+</script>
+</html>

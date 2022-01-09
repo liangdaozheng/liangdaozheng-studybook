@@ -15,6 +15,10 @@
 
 * 03.前端编程思维进阶
 
+  * 2022.01.10 响应式原理及应用
+
+    * 响应式 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/09)
+
   * 2022.01.09 Promise原理解析
 
     * Promise原理 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/07)
