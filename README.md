@@ -15,6 +15,11 @@
 
 * 03.前端编程思维进阶
 
+  * 2022.01.11 函数式编程
+
+    * 函数式 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/10)
+
+
   * 2022.01.10 响应式原理及应用
 
     * 响应式 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/09)

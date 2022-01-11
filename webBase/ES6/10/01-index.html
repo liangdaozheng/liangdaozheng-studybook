@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+// 编程范式 面向过程 面向对象
+
+// 一 纯函数
+
+// f(x)=y;
+let factor=3;
+const y=function(x){
+  return x*factor
+}
+
+// 复用性 可推测性
+
+// test()
+
+// 高阶函数
+
+// 意义  抽象
+
+// 命令式 强调 如何做，   声明式编程 做什么
+
+let arr=[1,2,3,4];
+
+for (let index = 0; index < arr.length; index++) {
+  const element = arr[index];
+  console.log(element);
+}
+
+
+// 声明式
+
+const forEach=function(arr,fn){
+  for (let index = 0; index < arr.length; index++) {
+    fn&& fn(arr[index]);
+    
+  }
+}
+
+
+// 通用柯力化
+
+const curry=function(fn){
+  return function curryFn(...args){
+    if(args.length<fn.length){
+     return function(){
+      return curryFn(...args,...arguments)
+     }
+    }else{
+      return fn(...args)
+    }
+  }
+}
+
+// 组合
+
+const compose=function(...fns){
+  return function(arg){
+    return fns.reverse().reduce((acc,fn)=>{
+      return fn(acc)
+    },arg)
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
