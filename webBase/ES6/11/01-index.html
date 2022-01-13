@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    #map{
+      position: relative;
+      width: 400px;
+      height: 400px;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+</body>
+<script>
+
+class Map{
+  constructor(el,rect=10){
+    this.el=el;
+    this.rows=Math.ceil( Map.getStyle(el,"height")/rect);
+    this.cells=Math.ceil(Map.getStyle(el,"width")/rect);
+    Map.setStyle(el,"height",this.rows*rect)
+    Map.setStyle(el,"width",this.cells*rect)
+  }
+  static getStyle(el,attr){
+    return parseFloat(getComputedStyle(el)[attr])
+  }
+  static setStyle(el,attr,val){
+    el.style[attr]=val+"px"
+  }
+  setData(){
+
+  }
+  clearData(){
+
+  }
+  render(){
+    
+  }
+
+}
+
+{
+  let map=document.querySelector("#map");
+  let gameMap=new Map(map,10);
+  console.log(gameMap)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</html>
