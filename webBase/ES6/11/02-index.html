@@ -24,8 +24,7 @@ class Map{
   constructor(el,rect=10){
     this.el=el;
     this.rect=rect;
-    this.data=[
-    ];
+    this.data=[];
     this.rows=Math.ceil( Map.getStyle(el,"height")/rect);
     this.cells=Math.ceil(Map.getStyle(el,"width")/rect);
     Map.setStyle(el,"height",this.rows*rect)
@@ -57,21 +56,37 @@ class Map{
 
 }
 
+// 食物
+class Food{
+  constructor(map,colors=['red','blue','yellow','pink']){
+    this.map=map;
+    this.data=null;
+    this.colors=colors;
+  }
+  create(){
+    let x=Math.floor(Math.random()*this.map.cells);
+    let y=Math.floor(Math.random()*this.map.rows);
+    let color=this.colors[parseInt(Math.random()*this.colors.length)]
+    this.data={x,y,color};
+    if(this.map.include(this.data)){
+      this.create();
+    }
+  }
+}
+
+// /////////////////////////////////
 {
   let map=document.querySelector("#map");
-  let gameMap=new Map(map,12);
-  gameMap.setData( [{
-        x:0,
-        y:10,
-        color:'red'
-      },{
-        x:1,
-        y:10,
-        color:'green'
-      }
-    ])
-  gameMap.render();
-  console.log(gameMap)
+  let gameMap=new Map(map,10);
+  console.log(gameMap);
+  let gameFood=new Food(gameMap);
+  // setInterval(()=>{
+  //   gameFood.create();
+  //   gameMap.setData(gameFood.data);
+  //   gameMap.render();
+
+  // },200)
+  gameFood.create();
 }
 
 
