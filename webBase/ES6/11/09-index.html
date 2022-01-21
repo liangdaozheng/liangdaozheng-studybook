@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #map {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      background: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="grade">0</h1>
+  <div id="map"></div>
+</body>
+<script>
+  class Event {
+    events = {} //事件池:记录所有的相关事件及处理函数
+    on(eventName, fn) {//添加一个事件处理
+      if (!this.events[eventName]) {
+        this.events[eventName] = [];
+      }
+      if (!this.events[eventName].includes(fn)) {
+        this.events[eventName].push(fn);
+      }
+    }
+    off(eventName, fn) { //删除一个事件处理
+      if (!this.events[eventName]) {
+        return;
+      }
+      this.events[eventName] = this.events[eventName].filter(item => item != fn);
+    }
+    dispatch(eventName, ...arg) { //触发事件
+      if (!this.events[eventName]) {
+        return;
+      }
+      this.events[eventName].forEach(item => {
+        item.call(this, ...arg);
+      });
+    }
+  }
+
+  class Map {
+    constructor(el, rect = 10) {
+      this.el = el;
+      this.rect = rect;
+      this.data = [];
+      this.rows = Math.ceil(Map.getStyle(el, "height") / rect);
+      this.cells = Math.ceil(Map.getStyle(el, "width") / rect);
+      Map.setStyle(el, "height", this.rows * rect)
+      Map.setStyle(el, "width", this.cells * rect)
+    }
+    static getStyle(el, attr) {
+      return parseFloat(getComputedStyle(el)[attr])
+    }
+    static setStyle(el, attr, val) {
+      el.style[attr] = val + "px"
+    }
+    setData(newData) {
+      this.data = this.data.concat(newData)
+    }
+    clearData() {
+      this.data.length = 0;
+    }
+    include({ x, y }) {
+      return this.data.some(item => {
+        (item === x && item.y === y)
+      })
+    }
+    render() {
+      this.el.innerHTML = this.data.map(item => {
+        return `<span style="position:absolute;left:${item.x * this.rect}px;top:${item.y * this.rect}px;width:${this.rect}px;height:${this.rect}px;background:${item.color};"></span>`
+      }).join('');
+    }
+
+  }
+
+  // 食物
+  class Food {
+    constructor(cells = 10, rows = 10, colors = ['green', 'blue', 'yellow', 'pink']) {
+      this.cells = cells;
+      this.rows = rows;
+      this.data = null;
+      this.colors = colors;
+      this.create();
+    }
+    create() {
+      let x = Math.floor(Math.random() * this.cells);
+      let y = Math.floor(Math.random() * this.rows);
+      let color = this.colors[parseInt(Math.random() * this.colors.length)]
+      this.data = { x, y, color };
+    }
+  }
+  // 蛇
+
+  class Snake {
+    constructor() {
+      this.data = [
+        { x: 6, y: 4, color: 'red' },
+        { x: 5, y: 4, color: 'green' },
+        { x: 4, y: 4, color: 'pink' },
+        { x: 3, y: 4, color: 'white' },
+        { x: 2, y: 4, color: 'blue' },
+      ];
+      this.direction = "right";
+    }
+    move() {
+      let index = this.data.length - 1;
+      this.lastData = {
+        x: this.data[index].x,
+        y: this.data[index].y,
+        color: this.data[index].color,
+      }
+      for (index; index > 0; index--) {
+        this.data[index].x = this.data[index - 1].x;
+        this.data[index].y = this.data[index - 1].y;
+      }
+      switch (this.direction) {
+        case "left":
+          this.data[0].x--;
+          break;
+        case "right":
+          this.data[0].x++;
+          break;
+        case "top":
+          this.data[0].y--;
+          break;
+        case "bottom":
+          this.data[0].y++;
+          break;
+      }
+    }
+    changeDir(dir) {
+      if (this.direction === "left" || this.direction === "right") {
+        if (dir === "left" || dir === "right") {
+          return false;
+        };
+      } else {
+        if (dir === "top" || dir === "bottom") {
+          return false;
+        };
+      }
+      this.direction = dir;
+      return true;
+    }
+    eatFood(color) {
+      this.lastData.color=color;
+      this.data.push(this.lastData);
+    }
+
+  }
+
+  // game
+  class Game extends Event {
+    constructor(el, rect,number=256) {
+      super();
+      this.map = new Map(el, rect);
+      this.food = new Food(this.map.cells, this.map.rows,this.creatFoodColors(number));
+      this.snake = new Snake(this.map);
+      this.map.setData(this.snake.data);
+      this.creatFood();
+      this.render();
+      this.timer = 0;
+      this.grade = 0;
+      this.interval = 200;
+      this.keDown = this.keDown.bind(this);
+      this.control();
+    }
+    render() {
+      this.map.clearData();
+      this.map.setData(this.snake.data);
+      this.map.setData(this.food.data);
+      this.map.render();
+    }
+    start() {
+      this.move();
+    }
+    creatFood() {
+      this.food.create();
+      if (this.map.include(this.food.data)) {
+        this.creatFood();
+      };
+    }
+    stop() {
+      clearInterval(this.timer);
+    }
+    move() {
+      this.stop();
+      this.timer = setInterval(() => {
+        this.snake.move();
+        if (this.isEat()) {
+          this.grade++;
+          this.snake.eatFood(this.food.color);
+          this.creatFood();
+          this.changerGrade(this.grade);
+          this.interval *= .99;
+          this.stop();
+          this.start();
+          if (this.grade >= 20) {
+            this.over(1);
+          }
+        };
+        if (this.isOver()) {
+          this.over(0);
+          return false;
+        }
+        this.render();
+      }, this.interval);
+    }
+    isEat() {
+      return (this.snake.data[0].x === this.food.data.x) && (this.snake.data[0].y === this.food.data.y)
+    }
+    isOver() {
+      if (this.snake.data[0].x < 0 || this.snake.data[0].x >= this.map.cells || this.snake.data[0].y < 0 || this.snake.data[0].y >= this.map.rows) {
+        return true;
+      };
+      for (let index = 1; index < this.snake.data.length; index++) {
+        if (this.snake.data[0].x == this.snake.data[index].x && this.snake.data[0].y == this.snake.data[index].y) {
+          return true;
+        }
+      };
+      return false;
+
+    }
+    over(overStatus = 0) {
+      if (overStatus) {
+        this.dispatch('win')
+      } else {
+        this.dispatch('over')
+      }
+
+      this.stop();
+    }
+    changerGrade(grade) {
+      this.dispatch('changegrade', grade)
+    }
+    keDown({ keyCode }) {
+      let isDir;
+      switch (keyCode) {
+        case 37:
+          isDir = this.snake.changeDir("left");
+          break;
+        case 38:
+          isDir = this.snake.changeDir("top");
+          break;
+        case 39:
+          isDir = this.snake.changeDir("right");
+          break;
+        case 40:
+          isDir = this.snake.changeDir("bottom");
+          break;
+      }
+    }
+    control() {
+      if (this.toControl) {
+        this.toControl();
+        return false;
+      }
+      window.addEventListener("keydown", this.keDown)
+    }
+    addControl(fn) {
+      fn.call(this);
+      window.removeEventListener("keydown", this.keDown)
+    }
+    creatFoodColors(number){
+      let newArr=[];
+      for (let index = 0; index < number; index++) {
+        newArr.push(`rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`)
+      }
+      return newArr;
+    }
+  }
+  {
+    let map = document.querySelector("#map");
+    let game = new Game(map, 10);
+    let gradeEl = document.getElementById('grade')
+    game.on("changegrade", (grade) => {
+      console.log(grade);
+      gradeEl.innerHTML = grade;
+    });
+    game.on("over", () => {
+      gradeEl.innerHTML = 'Game Over';
+    });
+    game.on("win", () => {
+      gradeEl.innerHTML = 'Greed Is Good';
+    });
+    document.onclick = function () {
+      game.start();
+    }
+  }
+</script>
+
+</html>
