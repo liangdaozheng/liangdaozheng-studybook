@@ -242,7 +242,7 @@ class Game extends Event{
   }
   changerGrade(grade){
     // this.toGrade&& this.toGrade(grade)
-    this.dispatch('changegrade')
+    this.dispatch('changegrade',grade)
   }
   keDown({keyCode}){
     let isDir;
@@ -318,12 +318,18 @@ class Game extends Event{
   //   console.log(grade);
   //   gradeEl.innerHTML=grade;
   // }
-  game.toOver=function(){
+  // game.toOver=function(){
+  //   gradeEl.innerHTML='Game Over';
+  // }
+  game.on("over",()=>{
     gradeEl.innerHTML='Game Over';
-  }
-  game.toWin=function(){
+  })
+  // game.toWin=function(){
+  //   gradeEl.innerHTML='Greed Is Good';
+  // }
+  game.on("win",()=>{
     gradeEl.innerHTML='Greed Is Good';
-  }
+  })
   document.onclick=function(){
     console.log(1111)
     game.start();
