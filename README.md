@@ -13,7 +13,17 @@
 
 ## WEB前端高级工程师
 
+* 04.Node.JS
+
+  * 2022.01.28 web服务器 
+
+    * 函数式 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/node/03)
+
 * 03.前端编程思维进阶
+
+  * 2022.01.27 贪吃蛇
+
+    * 函数式 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ES6/13)
 
   * 2022.01.11 函数式编程
 
