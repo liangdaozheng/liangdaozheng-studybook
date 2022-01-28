@@ -11,10 +11,17 @@
     "url": "git+https://github.com/liangdaozheng/liangdaozheng-studybook.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "liangdaozheng",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/liangdaozheng/liangdaozheng-studybook/issues"
   },
-  "homepage": "https://github.com/liangdaozheng/liangdaozheng-studybook#readme"
+  "homepage": "https://github.com/liangdaozheng/liangdaozheng-studybook#readme",
+  "dependencies": {
+    "koa": "^2.13.4",
+    "koa-nunjucks-2": "^3.0.2",
+    "koa-router": "^10.1.1",
+    "koa-views": "^8.0.0",
+    "pug": "^3.0.2"
+  }
 }

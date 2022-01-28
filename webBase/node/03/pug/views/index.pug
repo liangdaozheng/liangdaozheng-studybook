@@ -1,0 +1,57 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    style.
+      .mydiv{
+        width:200px;
+        height:200px;
+        background :red;
+      }
+  body 
+    h1 我是标题
+    div 这是块及
+    div(class="mydiv") 类名为mydiv
+    .mydiv2 div2 
+    #myid 这里是ID
+    //- 我是pug注释
+    //-
+      yi class=''
+      er class=''
+    // 我是html注释
+    // 
+      diyihang 
+      dierhang
+
+    div 
+      | hello 
+    - let str="你好"
+    p #{str}
+    p #{data}
+
+    ul
+      each item,index in users 
+        li 姓名：#{item.name} #{index}
+
+    - for (let index=0;index<4;index++)
+        span #{index}
+
+    - let num=1;
+        case num 
+            when 1
+              p num 是一
+            default 
+              p num 是其他
+
+    mixin mydiv 
+        div 我是粉尘的div 
+
+    +mydiv
+    +mydiv
+    +mydiv
+    include common.pug
+    script(type="text/javascript").
+      console.log('pug 模板')

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>我是标题</h1>
+  <p>数据{{data}}</p>
+  <!-- 我是注释 -->
+
+  {# numjucks 注释 #}
+
+  {% if num>3 %}
+
+  <p>num 值是 小于 3</p>
+
+  {% elseif num<3 %}
+
+  <p>num 值是 大于 3</p>
+
+  {% else %}
+
+  <p>num 值是 于 3</p>
+
+  {% endif %}
+
+  <ul>
+    {%for item in users%}
+      <li>{{item.name}}</li>
+    {%endfor%}
+
+  </ul>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
