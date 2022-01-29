@@ -1,0 +1,26 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^10.1.1",
+    "koa": "^2.13.4",
+    "koa-body": "^4.2.0",
+    "koa-nunjucks": "0.0.4",
+    "koa-router": "^10.1.1",
+    "koa-static-cache": "^5.1.4",
+    "mysql2": "^2.3.3",
+    "nunjucks": "^3.2.3"
+  },
+  "devDependencies": {
+    "chokidar": "^3.5.3"
+  }
+}
