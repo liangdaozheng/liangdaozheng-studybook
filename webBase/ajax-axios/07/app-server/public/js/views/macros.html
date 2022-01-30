@@ -1,0 +1,15 @@
+{% macro pagination(url, pages, page = 1) %}
+<div class="pagination">
+    <a href="{{url}}?page=1">首页</a>
+    <a href="{{url}}?page={{page-1}}">&lt;</a>
+    {%for i in range(1, pages+1)%}
+    {%if i == page%}
+    <a href="{{url}}?page={{i}}" class="current">{{i}}</a>
+    {%else%}
+    <a href="{{url}}?page={{i}}">{{i}}</a>
+    {%endif%}
+    {%endfor%}
+    <a href="{{url}}?page={{page+1}}">&gt;</a>
+    <a href="{{url}}?page={{pages}}">尾页</a>
+</div>
+{% endmacro %}
