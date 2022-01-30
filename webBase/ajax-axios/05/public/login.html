@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+    <h1>登录</h1>
+    <form action="">
+        <p>
+            用户名：<input type="text" name="username">
+        </p>
+        <p>
+            密码：<input type="password" name="password">
+        </p>
+        <p>
+            <button>登录</button>
+        </p>
+    </form>
+
+    <script>
+        let formElement = document.querySelector('form');
+
+        // console.dir(formElement)
+
+        formElement[2].onclick = function (e) {
+            e.preventDefault();
+
+
+            let xhr = new XMLHttpRequest();
+
+            xhr.open('post', '/login');
+
+            xhr.onload = function () {
+                // const auth = this.getResponseHeader('authorization');
+                // console.log(auth);
+                // if (auth) {
+                //     localStorage.setItem('auth', auth);
+                //     window.location.href = '/chat';
+                // }
+
+                // console.log(this.status);
+                if (this.status == 200) {
+                    window.location.href = '/chat';
+                }
+            }
+
+
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                username: formElement[0].value,
+                password: formElement[1].value
+            }));
+        }
+
+
+        // EventSource
+        function getUsers() {
+            let eventSource = new EventSource('/users');
+
+            eventSource.addEventListener('users', function (e) {
+                console.log(`users`, e);
+
+                let users = JSON.parse(e.data);
+
+                ulElement.innerHTML = '';
+                users.forEach(user => {
+                    let liElement = document.createElement('li');
+                    liElement.innerHTML = user.username;
+                    ulElement.appendChild(liElement);
+                })
+            })
+
+            eventSource.onmessage = function (e) {
+                console.log(`message`, e);
+
+                let users = JSON.parse(e.data);
+
+                ulElement.innerHTML = '';
+                users.forEach(user => {
+                    let liElement = document.createElement('li');
+                    liElement.innerHTML = user.username;
+                    ulElement.appendChild(liElement);
+                })
+            }
+        }
+    </script>
+
+</body>
+
+</html>
