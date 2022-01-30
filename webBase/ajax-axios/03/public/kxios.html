@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="/public/js/kxios/kxios.js"></script>
+<script>
+
+    document.onclick = async function() {
+
+
+        kxios.interceptors.request.use(function(config) {
+            console.log('request - 1')
+
+            config.headers['Authorization'] = localStorage.getItem('token');
+
+            //  一定要在这里把config返回
+            return config;
+        }, function() {});
+        kxios.interceptors.request.use(function(config) {
+            console.log('request - 2')
+            return config;
+        }, function() {});
+        // console.log(kxios.interceptors);
+
+        // let res = await kxios({
+        //     method: 'get',
+        //     headers: {
+        //         'Authorization': localStorage.getItem('token')
+        //     },
+        //     url: '/users',
+        //     validateStatus(status) {
+        //         return status >= 100 && status < 300;
+        //     }
+        // });
+
+
+        // axios.request
+        let res = await kxios.request({
+            method:'get',
+            // headers: {
+            //     'Authorization': localStorage.getItem('token')
+            // },
+            url: '/users'
+        });
+
+        // http 对应的一些请求方法别名
+        // let res = await kxios.get('/users');
+
+        console.log(res);
+        console.log('data', res.data);
+    }
+
+</script>
+
+</body>
+</html>

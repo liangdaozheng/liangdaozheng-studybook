@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="/public/js/axios/axios.js"></script>
+<script>
+
+    document.onclick = async function() {
+
+        // 自定义适配器 - fetch
+        axios.defaults.adapter = function(config) {
+            // console.log('自定义适配器', config);
+
+            let response = {
+                data: '',
+                status: 200,
+                statusText: 'ok',
+                headers: {},
+                config: config,
+                request: 'request'
+            };
+
+            return new Promise(((resolve, reject) => {
+                fetch(config.url, {
+                    method: config.method
+                }).then(res => {
+                    response.status = res.status;
+                    response.statusText = res.statusText;
+                    response.headers = res.headers;
+                    return res.json();
+                }).then(data => {
+                    response.data = data;
+                    resolve(response);
+                });
+            }));
+        }
+
+
+
+        // let res = await axios({
+        //     method: 'get',
+        //     url: '/users'
+        // });
+        //
+
+
+        // axios.request
+        // let res = await axios.request({
+        //     method:'get',
+        //     url: '/users'
+        // });
+
+        // http 对应的一些请求方法别名
+        let res = await axios.get('/users');
+
+        console.log(res);
+        // console.log('data', res.data);
+    }
+
+</script>
+
+</body>
+</html>
