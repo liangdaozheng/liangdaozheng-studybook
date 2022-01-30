@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <p>
+        用户名：
+        <input type="text" id="username">
+    </p>
+    <p>
+        <button>登录</button>
+    </p>
+
+    <script>
+        let usernameElement = document.querySelector('#username');
+        let buttonElement = document.querySelector('button');
+
+        buttonElement.onclick =function () {
+            let xhr = new XMLHttpRequest();
+
+            xhr.open('post', '/api/login');
+
+            xhr.onload = function() {
+                let token = xhr.getResponseHeader('Authorization');
+                // console.log('token', token);
+
+                localStorage.setItem('token', token);
+            }
+
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                username: usernameElement.value
+            }));
+        }
+    </script>
+
+</body>
+</html>

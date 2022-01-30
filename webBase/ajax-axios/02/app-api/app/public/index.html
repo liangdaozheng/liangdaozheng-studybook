@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <button>获取所有用户</button>
+
+    <script>
+        let btnElements = document.querySelectorAll('button');
+
+        btnElements[0].onclick = function() {
+            let xhr = new XMLHttpRequest();
+
+            // xhr.open('get', 'http://localhost:8888/users');
+            // xhr.open('get', 'http://localhost:9999/users');
+            xhr.open('get', '/api/users');
+
+            xhr.onload = function() {
+                console.log(this.responseText);
+            }
+            
+            // 携带 token
+            let token = '';
+            try {
+                token = localStorage.getItem('token');
+            } catch (e) {
+                
+            }
+
+            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+            xhr.send();
+        }
+    </script>
+
+</body>
+</html>
