@@ -13,6 +13,12 @@
 
 ## WEB前端高级工程师
 
+* 05.前后端交互
+
+  * 2022.01.30 前后端交互 
+
+    * 前后端 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/ajax-axios)
+
 * 04.Node.JS
 
   * 2022.01.29 mysql 
