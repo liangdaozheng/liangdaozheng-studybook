@@ -6,9 +6,9 @@ const fs = require("fs");
 const usersData = require("./data/users.json");
 let app = new Koa();
 app.use(static(__dirname + "/static"));
-app.use(koaBody({
-  multipart: true
-}));
+// app.use(koaBody({
+//   multipart: true
+// }));
 let router = new Router();
 router.get("/", (ctx, next) => {
   ctx.body = "hello";
@@ -45,10 +45,15 @@ router.post("/checkUser", (ctx, next) => {
 })
 router.get("/get/:id", (ctx, next) => {
   console.log(ctx.params);
-  ctx.body = {
-    status: 1,
-    info: "请求成功"
-  }
+  return new Promise((rel,rej)=>{ // 模拟同步数据的处理
+    setTimeout(() => {
+      ctx.body = {
+        status: 1,
+        info: "请求成功"
+      }
+      rel();
+    }, 3000);
+  })
 })
 router.post("/post", (ctx, next) => {
   console.log(ctx.request.body);
@@ -86,5 +91,23 @@ router.post("/fileUpload", (ctx, next) => {
   fs.writeFileSync("static/imgs/" + ctx.request.files.myfile.name, fileData);
   ctx.body = "请求成功";
 })
+router.post('/attachment', koaBody({
+  multipart: true,
+  formidable: {
+      uploadDir: './static/imgs',
+      keepExtensions: true,
+      maxFileSize: 100000000
+  }
+}), async (ctx, next) => {
+  let {attachment} = ctx.request.files;
+
+  let path = attachment.path;
+
+  ctx.body = {
+      code: 0,
+      message: '上传成功',
+      data: path
+  }
+});
 app.use(router.routes());
 app.listen(3000);
