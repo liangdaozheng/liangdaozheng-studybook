@@ -13,6 +13,12 @@
 
 ## WEB前端高级工程师
 
+* 05.前端工程化
+
+  * 2022.01.31 前端工程化 
+
+    * 工程化 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/webpack-git)
+
 * 05.前后端交互
 
   * 2022.01.30 前后端交互 

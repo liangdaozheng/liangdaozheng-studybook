@@ -1,0 +1,27 @@
+{
+  "name": "08",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/index.js",
+    "test": "mocha",
+    "api":"apidoc -i ./src/ -o ./apidoc/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.4",
+    "koa-body": "^4.2.0",
+    "koa-router": "^10.1.1",
+    "koa-static-cache": "^5.1.4",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "apidoc": "^0.50.3",
+    "mocha": "^9.2.0",
+    "supertest": "^6.2.2"
+  }
+}
