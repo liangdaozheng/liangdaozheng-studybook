@@ -15,6 +15,15 @@
 
 * 05.前端工程化
 
+  * 2022.02.02 前端工程化 
+
+    * 工程化 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/webpack-git)
+
+
+  * 2022.02.01 前端工程化 
+
+    * 工程化 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/webpack-git)
+
   * 2022.01.31 前端工程化 
 
     * 工程化 [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/webpack-git)

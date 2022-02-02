@@ -1,0 +1,2 @@
+function setPosition(ele, direction) {
+}
