@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">{{msg}}
+    <div v-if="age===10">10</div>
+    <div v-else-if="age===20">20</div>
+    <div v-else>其他</div>
+
+    <div>
+      v-show
+      <div v-show="isShow">show</div>
+    </div>
+
+
+
+  </div>
+
+</body>
+<script>
+
+// v-if 可以选用懒加载
+// v-show 
+
+const app=new Vue({
+  el:"#app",
+  data:{
+    msg:'hello word',
+    age:18,
+    isShow:true
+  },
+  
+})
+
+
+
+
+
+</script>
+</html>
+  

@@ -13,6 +13,12 @@
 
 ## WEB前端高级工程师
 
+* 06.VueJS
+
+  * 2022.02.03 vue-template 
+
+    * vue-template [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/01)
+
 * 05.前端工程化
 
   * 2022.02.02 前端工程化 

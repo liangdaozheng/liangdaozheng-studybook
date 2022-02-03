@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+  
+</head>
+<body>
+  <div id="app">
+    <div>
+      <ul>
+        <li v-for="(item,index) in list" :key="index">
+          {{ item }}
+          <span v-show="item.count===0">没有了</span>
+          <button @click="item.count++">add</button>
+          <input v-model.number="item.count" type="number" />
+        </li>
+      </ul>
+      {{totalCount}}
+    </div>
+   
+  </div>
+
+</body>
+<script>
+// v-model 只是个语法糖
+const app=new Vue({
+  el:"#app",
+  data:{
+    msg:'hello word',
+    list:[
+      {name:1,count:1},
+      {name:1,count:1},
+      {name:1,count:1},
+      {name:1,count:1},
+      {name:1,count:1},
+      {name:1,count:1},
+    ]
+  },
+  computed:{
+    totalCount(){
+      return this.list.reduce((total,item)=>{
+        return total+item.count
+      },0)
+    }
+  }
+  
+})
+
+
+
+
+
+</script>
+</html>
+  

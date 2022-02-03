@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">{{msg}}
+
+    <div>{{count}}</div>
+    <div>{{user}}</div>
+    <button @click="handleClick">click</button>
+  </div>
+
+</body>
+<script>
+
+console.log(Vue);
+
+const app=new Vue({
+  el:"#app",
+  data:{
+    msg:'hello word',
+    count:18,
+    user:{
+      age:18
+    }
+  },
+  methods: {
+    handleClick(){
+      console.log('click');
+      this.count++;
+
+    }
+  },
+  watch:{
+    "user.age"(){
+      console.log('change')
+    },
+    count:{
+      handler(){
+        console.log('click');
+        this.count++;
+
+      },
+      immediate:true
+    }
+    // count(newVal,oldVal){
+    //   console.log(newVal,oldVal)
+    // }
+  }
+})
+
+
+
+
+
+</script>
+</html>
+  
