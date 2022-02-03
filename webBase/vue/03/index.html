@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../02/node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    {{msg}}
+
+    <Foo :list="tododata" v-slot="{item}">
+      
+      F00 {{item+'---foo'}}
+
+    </Foo>
+
+  </div>
+  
+</body>
+<script>
+
+const Foo={
+  props: ["list"],
+  template:`
+  <div>
+      <ul>
+        <li v-for="(item,index) in list" :key="index">
+          <slot :item="item">{{ item }}</slot>
+        </li>
+      </ul>
+    </div>
+  
+  `,
+}
+
+
+
+const app=new Vue({
+  el:"#app",
+  data() {
+    return {
+      tododata: ['message',1,2,3,4,5,6],
+      msg:"liang"
+    }
+  },
+  components: {
+    Foo,
+  },
+})
+
+
+
+
+
+</script>
+</html>
