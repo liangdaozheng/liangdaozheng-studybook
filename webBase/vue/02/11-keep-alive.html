@@ -1,0 +1,75 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button @click="handleChange('Home')">Home</button>
+    <button @click="handleChange('Post')">Post</button>
+    <button @click="handleChange('Archive')">Archive</button>
+    <div>
+      <keep-alive include="Home">
+        <component :is="comName"></component>
+      </keep-alive>
+    </div>
+    
+  </div>
+  <script>
+    Vue.component("Home", {
+      template:`<div>Home
+        <input type="radio" name="gender" v-model="checked">男</input>
+      <input type="radio" name="gender" v-model="checked">女</input>
+        </div>`,
+      activated() {
+        console.log('ooo')
+      },
+    })
+    Vue.component("Post", {
+      template:`<div>Post
+        </div>`
+    })
+    Vue.component("Archive", {
+      template:`<div>Archive
+        </div>`
+    })
+    const Foo={
+      data() {
+        return {
+          count: 0
+        }
+      },
+      template:`
+      <div>Foo
+        {{count}}
+        <button @click="count++">add</button>
+        </div>
+      `,
+    }
+    const app = new Vue({
+      el:'#app',
+      components: {
+        Foo,
+      },
+      data() {
+        return {
+          comName: "Home"
+        }
+      },
+      methods: {
+        handleChange(val) {
+          this.comName=val;
+        }
+      },
+    })
+
+  </script>
+  
+</body>
+</html>

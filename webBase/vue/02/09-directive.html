@@ -10,40 +10,26 @@
 <body>
   <div id="app"></div>
   <script>
-    // Vue 单项数据流
+
+    Vue.directive('focus', {
+      inserted(el,binding){
+        console.log(binding);
+        el.focus();
+      }
+    })
+
+
     const Foo={
       data() {
         return {
           count: 0
         }
       },
-      // props:['title'],
-      props:{
-        title:{
-          type:String,
-          default:'ll',
-          required:true,
-          validator(val){
-            console.log(val)
-            // return false
-            return val=='name'
-          }
-        }
-      },
       template:`
       <div>Foo
-        {{title}}
-        {{count}}
-        <button @click="count++">add</button>
-        <button @click="handleChange">chang props</button>
+        <input v-focus/>
         </div>
       `,
-      methods: {
-        handleChange() {
-          console.log(this.title);
-          this.title='b'
-        }
-      },
     }
     const app = new Vue({
       el:'#app',
@@ -52,7 +38,7 @@
       },
       template:`
         <div>app
-          <Foo title="name"></Foo>
+          <Foo></Foo>
           
           </div>
       `,

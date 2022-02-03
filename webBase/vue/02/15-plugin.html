@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{msg}}
+
+    <input type="text" v-focus />
+    <button @click="handleClick">click</button>
+    <el-button></el-button>
+  </div>
+  <script>
+    // vue plugin
+    // 1. 添加全局函数
+    // 2. 添加全局资源 - 组件、指令
+    // 3. 混入一些组件选项
+    // 4. 添加 vue 的实例方法
+
+    const MyPlugin = {
+      install(Vue, options) {
+        console.log(Vue);
+        console.log(options);
+
+        // 1. 添加全局函数
+        Vue.log = (...args) => {
+          console.log(...args);
+        };
+
+        // 2. 资源
+        Vue.component("el-button", {
+          template: "<button>el - button</button>",
+        });
+
+        Vue.directive("focus", {
+          inserted(el) {
+            el.focus();
+          },
+        });
+
+        // 3.
+        Vue.mixin({
+          created() {
+            console.log("from my plugin");
+          },
+        });
+
+        // 4.
+        Vue.prototype.$http = () => {
+          console.log("http");
+        };
+      },
+    };
+    Vue.use(MyPlugin, {
+      name: "myPlugin",
+    });
+
+    Vue.log("my console.log();");
+
+    const app = new Vue({
+      el: "#app",
+      data: {
+        msg: "hello world",
+      },
+      methods: {
+        handleClick() {
+          this.$http();
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>

@@ -10,40 +10,47 @@
 <body>
   <div id="app"></div>
   <script>
-    // Vue 单项数据流
-    const Foo={
+
+    const MousemoveMixin = {
       data() {
         return {
-          count: 0
+          x: 0,
+          y:0
         }
       },
-      // props:['title'],
-      props:{
-        title:{
-          type:String,
-          default:'ll',
-          required:true,
-          validator(val){
-            console.log(val)
-            // return false
-            return val=='name'
-          }
+      mounted() {
+        console.log('hello from mixin!');
+        window.addEventListener('mousemove',this.handleMousemove);
+      },
+      methods: {
+        handleMousemove(e){
+          this.x=e.pageX;
+          this.y=e.pageY;
         }
       },
+    };
+
+    // const fooMixin={
+    //   data() {
+    //     return {
+    //       value: "foo-mixin"
+    //     }
+    //   },
+    // }
+
+    // Vue.mixin({
+    //   mounted () {
+    //     console.log('mixin')
+    //   },
+    // })
+
+    const Foo={
+      mixins:[MousemoveMixin],
       template:`
       <div>Foo
-        {{title}}
-        {{count}}
-        <button @click="count++">add</button>
-        <button @click="handleChange">chang props</button>
+        {{x}}- {{y}} 
         </div>
       `,
-      methods: {
-        handleChange() {
-          console.log(this.title);
-          this.title='b'
-        }
-      },
     }
     const app = new Vue({
       el:'#app',
@@ -52,7 +59,7 @@
       },
       template:`
         <div>app
-          <Foo title="name"></Foo>
+          <Foo></Foo>
           
           </div>
       `,

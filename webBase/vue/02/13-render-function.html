@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <Foo title="titlefoo">123</Foo>
+    <Bar :number="1">h1</Bar>
+    <Bar :number="2">h2</Bar>
+    <Bar :number="3">h3</Bar>
+  </div>
+  <script>
+     const Bar={
+      props: ['number'],
+      render(creatElement){
+        return creatElement('div',[creatElement(`h${this.$props.number}`,this.$slots.default)])
+      }
+    }
+    const Foo={
+      props: ['title'],
+      render(createElement){
+        console.log(this.$props.title);
+        console.log(this.$slots);
+        return createElement('div',{
+          class:{
+            test:true,
+          },
+          style:{
+            color:"red"
+          },
+          attrs:{
+            id:"foo"
+          },
+          on:{
+            click(){
+              console.log('click');
+            }
+          }
+        },this.$slots.default)
+
+      }
+    }
+    const app = new Vue({
+      el:'#app',
+      components: {
+        Foo,
+        Bar
+      },
+     
+    })
+
+  </script>
+  
+</body>
+</html>

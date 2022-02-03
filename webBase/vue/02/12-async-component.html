@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">{{msg}}
+    <Foo></Foo>
+
+  </div>
+  <script type="module">
+    // import Foo from './Foo.js'
+    // Vue.component("Foo",(resolve,reject)=>{
+    //   // setTimeout(() => {
+    //   //   resolve({
+    //   //     template:`<div>Foo</div>`
+    //   //   })
+    //   // }, 2000);
+    //   import('./Foo.js').then((code)=>{
+    //     console.log(code)
+    //     resolve(code.default)
+    //   })
+    // })
+    const loadingtem={
+      template:`
+      <div>loading</div>
+      `,
+    }
+    const errortem={
+      template:`
+      <div>error</div>
+      `,
+    }
+    const delay=(time,fn)=>{
+      return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+          resolve(fn());
+        }, time);
+      })
+    }
+    Vue.component("Foo",e=>({
+      component:delay(2000,e=>import('./Foo.js')),
+      loading:loadingtem,
+      error:errortem,
+      timeout:3000,
+    }))
+   
+    const app = new Vue({
+      el:'#app',
+      // components: {
+      //   Foo:()=>import('./Foo.js'),
+      // },
+      data() {
+        return {
+          msg: "hello"
+        }
+      },
+      
+    })
+
+  </script>
+  
+</body>
+</html>

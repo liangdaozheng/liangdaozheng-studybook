@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+   
+  </div>
+  <script>
+    const ToDoList={
+      props: ["list"],
+     
+      template:`<div>
+        <ul>
+          <li v-for="item in list" :key="item.id">
+            <slot :item="item">{{ item.text }}</slot>
+          </li>
+        </ul>
+        </div>`
+    }
+
+    const Foo={
+      data() {
+        return {
+          list: [1,2,3,4]
+        }
+      },
+      template:`<div>Foo
+        <slot :list="list">this is default slot</slot>
+        <div>
+          <slot name="one">this is default one slot</slot>
+          <slot name="two">this is default one slot</slot>
+        </div>
+        </div>`
+    }
+
+    const app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          list: [
+            {id:1,text:1},
+            {id:1,text:1},
+            {id:1,text:1},
+            {id:1,text:1},
+            {id:1,text:1},
+          ]
+        }
+      },
+      components: {
+        ToDoList,
+      },
+      template:`
+        <div>
+          <ToDoList :list="list" v-slot="{item}">
+            <p>{{item.text}}+'1'</p>
+          </ToDoList>
+        </div>
+      `
+    })
+
+  </script>
+
+</body>
+
+</html>
