@@ -15,6 +15,10 @@
 
 * 06.VueJS
 
+  * 2022.02.05 相册 
+
+    * vue-photo [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/08)
+
   * 2022.02.04 vue-router 
 
     * vue-router [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/05)
