@@ -25,7 +25,12 @@
     "koa-static-cache": "^5.1.4",
     "koa-views": "^8.0.0",
     "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
     "nunjucks": "^3.2.3",
     "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
   }
 }
