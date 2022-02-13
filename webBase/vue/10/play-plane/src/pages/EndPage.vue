@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import endPage from '../assets/end_page.jpg';
+import endPage from '../assets/end_page.jpg'
 import restartBtn from '../assets/restartBtn.png'
 
 export default {
@@ -16,7 +16,7 @@ export default {
     function startGame(){
       console.log('start game');
       emit('change-page','GamePage')
-    };
+    }
     return {
       endPage,
       restartBtn,

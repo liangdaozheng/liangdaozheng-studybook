@@ -8,7 +8,7 @@
 <script>
 import plane from '../assets/plane.png'
 import { onMounted, onUnmounted, reactive } from 'vue'
-
+import {planeMove} from './planeMove'
 export default {
   setup(){
     return {
@@ -16,41 +16,34 @@ export default {
     }
   }
 };
-export function usePlane(){
+export function usePlane({onAttack}){
    const planeInfo=reactive({
-      x:180,
-      y:300
+      x:200,
+      y:700,
+      width:20,
+      height:30
     })
-    // 移动
-    function move(){
-      const speed=10;
-      function handleMove(e){
-        console.log(e.code);
-        switch (e.code) {
-          case 'ArrowDown':
-            planeInfo.y += speed;
-            break;
-          case 'ArrowLeft':
-            planeInfo.x -= speed;
-            break;
-          case 'ArrowUp':
-            planeInfo.y -= speed;
-            break;
-          case 'ArrowRight':
-            planeInfo.x += speed;
-            break;
-          
+    
+    function attack(){
+      function handleAttack(e){
+        if(e.code==='Space'){
+          // console.log('ggg');
+          onAttack && onAttack({
+            x:planeInfo.x + 100,
+            y:planeInfo.y
+          })
         }
       }
       onMounted(()=>{
-        window.addEventListener("keyup",handleMove)
+        window.addEventListener("keyup",handleAttack)
       })
       onUnmounted(()=>{
-        window.removeEventListener("keyup",handleMove)
+        window.removeEventListener("keyup",handleAttack)
       })
-    };
+    }
     
-    move();
+    planeMove(planeInfo)
+    attack()
 
     return {
       planeInfo

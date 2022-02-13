@@ -1,7 +1,9 @@
 <template>
   <container>
     <StartPage v-if="currentPage==='StartPage'" @change-page="handleChangePage"></StartPage>
-    <GamePage v-else-if="currentPage==='GamePage'"></GamePage>
+    <GamePage v-else-if="currentPage==='GamePage'"
+    @change-page="handleChangePage"
+    ></GamePage>
     <EndPage v-else-if="currentPage==='EndPage'"  @change-page="handleChangePage"></EndPage>
   </container>
 </template>

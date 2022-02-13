@@ -43,6 +43,9 @@ const renderer=createRenderer({
     if(el && el.parent){
       el.parent.removeChild(el)
     }
+  },
+ createText (){
+
   }
 });
 
