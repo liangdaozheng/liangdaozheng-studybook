@@ -1,6 +1,7 @@
 {
-  "name": "vue",
+  "name": "learn-reactivity",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -8,9 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "@vue/reactivity": "^3.2.31",
-    "vue-router": "^3.5.3"
+    "@vue/reactivity": "^3.2.31"
   }
 }
