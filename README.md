@@ -15,6 +15,14 @@
 
 * 06.VueJS
 
+  * 2022.02.14 飞机大战 
+
+    * learn-render [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/10)
+
+  * 2022.02.13 飞机大战 
+
+    * learn-render [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/10)
+
   * 2022.02.05 相册 
 
     * vue-photo [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/08)
