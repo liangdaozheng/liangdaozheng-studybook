@@ -1,11 +1,13 @@
 <template>
-  <container>
-    <StartPage v-if="currentPage==='StartPage'" @change-page="handleChangePage"></StartPage>
-    <GamePage v-else-if="currentPage==='GamePage'"
-    @change-page="handleChangePage"
-    ></GamePage>
-    <EndPage v-else-if="currentPage==='EndPage'"  @change-page="handleChangePage"></EndPage>
-  </container>
+  <div id="app">
+    <container>
+      <StartPage v-if="currentPage==='StartPage'" @change-page="handleChangePage"></StartPage>
+      <GamePage v-else-if="currentPage==='GamePage'"
+      @change-page="handleChangePage"
+      ></GamePage>
+      <EndPage v-else-if="currentPage==='EndPage'"  @change-page="handleChangePage"></EndPage>
+    </container>
+  </div>
 </template>
 
 <script>
@@ -22,8 +24,8 @@ export default {
     GamePage
   },
   setup(){
-    // const currentPage=ref('StartPage');
-    const currentPage=ref('GamePage');
+    const currentPage=ref('StartPage');
+    // const currentPage=ref('GamePage');
     // const currentPage=ref('EndPage');
     function handleChangePage(pageName){
       currentPage.value=pageName;
