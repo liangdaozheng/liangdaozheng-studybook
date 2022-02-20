@@ -15,6 +15,18 @@
 
 * 06.VueJS
 
+  * 2022.02.20 trello 
+
+    * trello [code](https://github.com/liangdaozheng/trello)
+
+  * 2022.02.19 trello 
+
+    * trello [code](https://github.com/liangdaozheng/trello)
+
+  * 2022.02.15 飞机大战 
+
+    * learn-render [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/10)
+
   * 2022.02.14 飞机大战 
 
     * learn-render [code](https://github.com/liangdaozheng/liangdaozheng-studybook/blob/main/webBase/vue/10)
