@@ -1,5 +1,4 @@
 <template>
-  <div id="app">
     <container>
       <StartPage v-if="currentPage==='StartPage'" @change-page="handleChangePage"></StartPage>
       <GamePage v-else-if="currentPage==='GamePage'"
@@ -7,7 +6,6 @@
       ></GamePage>
       <EndPage v-else-if="currentPage==='EndPage'"  @change-page="handleChangePage"></EndPage>
     </container>
-  </div>
 </template>
 
 <script>
