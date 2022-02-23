@@ -18,7 +18,12 @@ const renderer=createRenderer({
     return element;
   },
   insert(el,parent){
-    el && parent.addChild(el)
+    console.log(el);
+    console.log(parent);
+    // el && parent.addChild(el)
+    if (el) {
+      parent.addChild(el);
+    }
   },
   patchProp(el,key,prevValue,nextValue){
     // console.log(prevValue);
